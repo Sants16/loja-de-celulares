@@ -10,4 +10,4 @@
 
 O projeto parte de um video do Youtube, realizado por [Gustavo Aquino](https://github.com/Gustavo-Aquino-1).
 <br>
-Por mais que o projeto tenha partido de um video do Youtube há diferenças entre os códigos mostrados no vídeo e o meu, caso queira pode consultar ambos [Projeto Original](https://github.com/Gustavo-Aquino-1/Loja-De-Compras).
+Por mais que o projeto tenha partido de um video do Youtube <strong>há diferenças entre os códigos mostrados no vídeo e o meu</strong>, caso queira pode consultar ambos [Projeto Original](https://github.com/Gustavo-Aquino-1/Loja-De-Compras).
