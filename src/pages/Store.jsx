@@ -2,14 +2,18 @@ import React from 'react';
 import { useStore } from '../hooks/pages/useStore'; //? Hook personalizado feito para não "poluir" o código com várias linhas
 import { Formater } from '../services/Formater';
 import { BsFillCartCheckFill,  BsFillCartPlusFill } from 'react-icons/bs'
-import { ProductsArea, Button } from '../css/styles';
+import { ProductsArea, Button, Message, Container } from '../css/styles';
 
 const Store = () => {
     const H = useStore() //* Assim eu consigo acessar todos os itens do hook useStore apartir do sufixo H, achei melhor deixar dessa forma pois ficaria mais facil identificar que o objeto parte de um hook personalizado
     
     return ( 
-        <div>
+        <Container>
             <ProductsArea>
+            {
+                H.data.length === 0 && <Message>Carregando...</Message>
+            }
+
                 {
                     H.data.map(item => (
                         <div key={item.id}>
@@ -30,7 +34,7 @@ const Store = () => {
                     ))
                 }
             </ProductsArea>
-        </div>
+        </Container>
      );
 }
  

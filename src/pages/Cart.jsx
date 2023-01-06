@@ -2,13 +2,13 @@ import React from 'react';
 import { useCart } from '../hooks/pages/useCart';
 import { Formater } from '../services/Formater';
 import { BsFillCartDashFill } from 'react-icons/bs'
-import { ProductsArea, Button } from '../css/styles'
+import { ProductsArea, Button, Message, Container } from '../css/styles'
 
 const Cart = () => {
     const H = useCart()
 
     return ( 
-        <div>
+        <Container column>
             {H.data.length >= 1 && (
                 <div style={{marginTop: "30px"}}>
                     <h2>Subtotal:</h2> <span>{Formater.valorMonetario(H.subTotal)}</span>
@@ -29,10 +29,10 @@ const Cart = () => {
                             </Button>
                         </div>
                     ))
-                    : <h3>Sem itens no carrinho, adicione algum na aba Store</h3>
+                    : <Message>Sem itens no carrinho, adicione algum na aba Store</Message>
                 }
             </ProductsArea>
-        </div>
+        </Container>
      );
 }
  

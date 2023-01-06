@@ -3,7 +3,7 @@ import { setItem, getItem } from '../../services/LocalStorageFuncs'
 
 export function useStore() {
 
-    const [data, setData] = useState([])
+    const [data, setData] = useState(getItem('estoque') ?? [])
     const [cart, setCart] = useState(getItem('carrinho') ?? []) //? se o carrinho for null ou undefined o state vai ser []
 
     //* Pega os celulares que serão exibidos da api
@@ -13,6 +13,7 @@ export function useStore() {
         const responseJson = await response.json()
         const results = responseJson.results
         setData(results)
+        setItem('estoque', results)
     }
 
     useEffect(() => {
