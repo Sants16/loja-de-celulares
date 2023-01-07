@@ -2,10 +2,6 @@ import styled from 'styled-components'
 import { buttonStyle } from './mixins';
 
 export const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     ${props => props.column && 'flex-direction: column;'}
 `;
 
@@ -60,9 +56,10 @@ export const Form = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 60px 20px;
-    gap: 20px;
-    margin-top: 120px;
+    padding: 40px 20px;
+    row-gap: 10px;
+    margin-top: 110px;
+    
     background: #DC143C;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -70,8 +67,8 @@ export const Form = styled.form`
     div {
         display: flex;
         flex-direction: column;
-        width: 650px;
-        height: 70px;
+        width: 40rem;
+        height: 5rem;
 
         label {
             align-self: flex-start;
@@ -89,6 +86,7 @@ export const Form = styled.form`
             text-align: center;
             font-size: 15px;
             font-weight: lighter;
+            outline-width: 0;
         }
 
         &.btn{
@@ -103,9 +101,27 @@ export const Form = styled.form`
                 transition: all ease-in-out 0.2s;
 
                 &:hover {
-                    color: #333;
+                    color: black;
+                    filter: drop-shadow(4px 4px 5px #000);
                 }
             }
         }
+    }
+`;
+
+export const ButtonsContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+    flex-direction: row !important;
+
+    button {
+        border: none;
+        border-radius: 8px;
+        width: 85px;
+        height: 45px;
+        text-align: center;
+        cursor: pointer;
     }
 `;

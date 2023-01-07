@@ -5,17 +5,21 @@ import styled from 'styled-components';
 const HeaderArea = styled.header`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     gap: 50px;
+    width: 100%;
     background-color: crimson;
     padding: 20px;
 
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 15px;
+    }
+
     a {
         color: white;
-
-        &:nth-child(3) {
-            align-self: flex-end !important;
-        }
 
         &:hover {
             text-decoration: underline;
@@ -26,8 +30,10 @@ const HeaderArea = styled.header`
 const Header = () => {
     return ( 
         <HeaderArea>
-            <Link to='/'>Store</Link>
-            <Link to='/cart'>Cart</Link>
+            <div>
+                <Link to='/'>Store</Link>
+                <Link to='/cart'>Cart</Link>
+            </div>
             <Link to='/login'>Login</Link>
         </HeaderArea>
      );
