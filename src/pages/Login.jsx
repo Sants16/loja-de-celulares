@@ -15,7 +15,7 @@ const Login = () => {
                             type="email" 
                             name='email' 
                             placeholder='Insira um e-mail'
-                            value={H.user.email ? H.user.email : ''}
+                            value={H.user.email ?? ''}
                             onChange={(e) => H.onChangeInput(e)}
                         />
                     </div>
@@ -27,7 +27,7 @@ const Login = () => {
                                 type={H.passwordVisibility ? 'text' : 'password'} 
                                 name='senha' 
                                 placeholder='Insira uma senha'
-                                value={H.user.senha ? H.user.senha : ''}
+                                value={H.user.senha ?? ''}
                                 onChange={(e) => H.onChangeInput(e)}
                             />
                             <button onClick={(e) => H.seePassword(e)}>

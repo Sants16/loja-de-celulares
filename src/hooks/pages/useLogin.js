@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { getItem, setItem } from "../../services/LocalStorageFuncs"
+import { hash, compare } from "../../services/PasswordEncrypting"
 
 export function useLogin() {
 
@@ -30,10 +31,11 @@ export function useLogin() {
         if(usuarioCadastrado !== null) {
             const { email, senha } = usuarioCadastrado
 
-            if(email === user.email && senha === user.senha){
-                console.log('logou')
+            if(email === user.email && compare(user.senha, senha)){
+                console.log('Logou')
             } else {
                 console.log('email ou senha errados')
+                limparCampos()
             }
         } else {
             console.log('esse usuário não existe')
@@ -43,6 +45,7 @@ export function useLogin() {
 
     const cadastrar = e => {
         e.preventDefault()
+        user.senha = hash(user.senha)
         !getItem('user') ? setItem('user', user) : console.log('usuario ja existe')
         limparCampos()
     }

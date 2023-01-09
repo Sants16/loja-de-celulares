@@ -123,5 +123,6 @@ export const ButtonsContainer = styled.div`
         height: 45px;
         text-align: center;
         cursor: pointer;
+        box-shadow: 3px 3px 2px black;
     }
 `;

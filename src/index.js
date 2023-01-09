@@ -7,8 +7,6 @@ import Store from './pages/Store';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
 
-// TODO: converter as rotas da loja-de-celulares pro estilo do github-finder
-
 const router = createBrowserRouter([
   {
     path: '/',
