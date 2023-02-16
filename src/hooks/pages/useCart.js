@@ -1,23 +1,22 @@
 import { useState } from "react";
-import { getItem, setItem } from '../../services/LocalStorageFuncs'
+import { getItem, setItem } from "../../services/LocalStorageFuncs";
 
 export function useCart() {
+  const [data, setData] = useState(getItem("carrinho") ?? []);
 
-    const [data, setData] = useState(getItem('carrinho') ?? [])
+  const removeItem = (obj) => {
+    const arrFilter = data.filter((itemCarrinho) => itemCarrinho.id !== obj.id);
 
-    const removeItem = obj => {
-        const arrFilter = data.filter(itemCarrinho => itemCarrinho.id !== obj.id)
+    setData(arrFilter);
+    setItem("carrinho", arrFilter);
+  };
 
-        setData(arrFilter)
-        setItem('carrinho', arrFilter)
-    }
+  const subTotal = data.reduce((acc, cur) => acc + cur.price, 0);
 
-    const subTotal = data.reduce((acc, cur) => acc + cur.price ,0)
-
-    return {
-        data,
-        setData,
-        removeItem,
-        subTotal
-    }
+  return {
+    data,
+    setData,
+    removeItem,
+    subTotal,
+  };
 }

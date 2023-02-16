@@ -1,5 +1,5 @@
 export function buttonStyle(color) {
-    return `
+  return `
         color: ${color};
-    `
+    `;
 }

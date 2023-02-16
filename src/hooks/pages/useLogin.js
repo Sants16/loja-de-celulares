@@ -1,63 +1,84 @@
-import { useState } from "react"
-import { getItem, setItem } from "../../services/LocalStorageFuncs"
-import { hash, compare } from "../../services/PasswordEncrypting"
+import validator from "validator";
+import { useEffect, useState } from "react";
+import { getItem, setItem } from "../../services/LocalStorageFuncs";
+import { hash, compare } from "../../services/PasswordEncrypting";
+import { useNavigate } from "react-router-dom";
 
 export function useLogin() {
+  const usuarioCadastrado = getItem("user");
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
+  const [email, setEmail] = useState(
+    usuarioCadastrado ? usuarioCadastrado.email : ""
+  );
+  const [password, setPassword] = useState("");
+  const [disableButton, setDisableButton] = useState(true);
 
-    const [passwordVisibility, setPasswordVisibility] = useState(false)
-    const [user, setUser] = useState({})
+  const navigate = useNavigate();
 
-    const seePassword = e => {
-        e.preventDefault()
-        setPasswordVisibility(!passwordVisibility)
+  const seePassword = (e) => {
+    e.preventDefault();
+    setPasswordVisibility(!passwordVisibility);
+  };
+
+  useEffect(() => {
+    if (email && password) {
+      if (validator.isEmail(email) && password.length >= 6) {
+        setDisableButton(false);
+      } else {
+        setDisableButton(true);
+      }
     }
+  }, [email, password]);
 
-    const onChangeInput = e => {
-        e.preventDefault()
-        setUser({ 
-            ...user,
-            [e.target.name]: e.target.value
-        })
+  const limparCampos = () => {
+    setEmail("");
+    setPassword("");
+  };
+
+  const logar = (e) => {
+    e.preventDefault();
+
+    if (usuarioCadastrado) {
+      if (
+        usuarioCadastrado.email === email &&
+        compare(password, usuarioCadastrado.password.hash)
+      ) {
+        navigate("/app/store");
+      } else {
+        console.log("email ou senha errados");
+      }
+    } else {
+      console.log("esse usuário não existe");
+      limparCampos();
     }
+  };
 
-    const limparCampos = () => {
-        setUser({})
-    }
+  const cadastrar = (e) => {
+    e.preventDefault();
+    const user = {
+      email,
+      password: {
+        hash: hash(password),
+        nohash: password,
+      },
+    };
+    usuarioCadastrado
+      ? console.log("usuario ja existe")
+      : setItem("user", user);
+    limparCampos();
+  };
 
-    const logar = e => {
-        e.preventDefault()
-        const usuarioCadastrado = getItem('user') ?? null
-
-        if(usuarioCadastrado !== null) {
-            const { email, senha } = usuarioCadastrado
-
-            if(email === user.email && compare(user.senha, senha)){
-                console.log('Logou')
-            } else {
-                console.log('email ou senha errados')
-                limparCampos()
-            }
-        } else {
-            console.log('esse usuário não existe')
-            limparCampos()
-        }
-    }
-
-    const cadastrar = e => {
-        e.preventDefault()
-        user.senha = hash(user.senha)
-        !getItem('user') ? setItem('user', user) : console.log('usuario ja existe')
-        limparCampos()
-    }
-
-
-    return {
-        passwordVisibility,
-        setPasswordVisibility,
-        seePassword,
-        onChangeInput,
-        user,
-        logar,
-        cadastrar
-    }
+  return {
+    passwordVisibility,
+    setPasswordVisibility,
+    seePassword,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    logar,
+    cadastrar,
+    disableButton,
+    usuarioCadastrado,
+  };
 }
