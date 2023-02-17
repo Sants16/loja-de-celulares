@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useQuery } from "react-query";
 import { setItem, getItem } from "../../services/LocalStorageFuncs";
 
 export function useStore() {
-  const [data, setData] = useState(getItem("estoque") ?? []);
+  const { data, isLoading } = useQuery(
+    "estoque",
+    async () => {
+      const response = await fetch(
+        "https://api.mercadolibre.com/sites/MLB/search?q=celular"
+      );
+      const responseJson = await response.json();
+      const { results } = responseJson;
+      return results;
+    },
+    {
+      retry: 5,
+    }
+  );
+
   const [cart, setCart] = useState(getItem("carrinho") ?? []); //? se o carrinho for null ou undefined o state vai ser []
-
-  //* Pega os celulares que serão exibidos da api
-  const fetchApi = async () => {
-    const apiURL = "https://api.mercadolibre.com/sites/MLB/search?q=celular";
-    const response = await fetch(apiURL);
-    const responseJson = await response.json();
-    const results = responseJson.results;
-    setData(results);
-    setItem("estoque", results);
-  };
-
-  useEffect(() => {
-    fetchApi();
-  }, []);
 
   const handleClick = (obj) => {
     //* Verifica se o elemento existe dentro do carrinho de compras
@@ -38,9 +39,8 @@ export function useStore() {
 
   return {
     data,
-    setData,
+    isLoading,
     cart,
-    setCart,
     handleClick,
   };
 }

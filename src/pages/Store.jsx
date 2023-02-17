@@ -7,7 +7,7 @@ import { ProductsArea, Button, Message } from "../css/styles";
 const Store = () => {
   const H = useStore(); //* Assim eu consigo acessar todos os itens do hook useStore apartir do sufixo H, achei melhor deixar dessa forma pois ficaria mais facil identificar que o objeto parte de um hook personalizado
 
-  return H.data.length === 0 ? (
+  return H.isLoading ? (
     <Message>Carregando...</Message>
   ) : (
     <ProductsArea>
