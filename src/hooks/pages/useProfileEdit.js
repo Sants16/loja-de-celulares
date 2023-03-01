@@ -13,6 +13,7 @@ export function useProfileEdit() {
   const [email, setEmail] = useState(user.email ?? "");
   const [password, setPassword] = useState(user.password.nohash ?? "");
   const [cpf, setCpf] = useState(user.cpf ?? "");
+  const [saldo, setSaldo] = useState(user.saldo ?? 0);
 
   const fileInputRef = useRef();
   const navigate = useNavigate();
@@ -39,7 +40,8 @@ export function useProfileEdit() {
       validator.isEmail(email) &&
       name.length >= 4 &&
       password.length >= 5 &&
-      cpf.length === 11
+      cpf.length === 11 &&
+      saldo.length > 2
     ) {
       setItem("user", {
         previewImage,
@@ -50,6 +52,7 @@ export function useProfileEdit() {
           nohash: password,
         },
         cpf,
+        saldo,
       });
       navigate("/app/profile");
     }
@@ -66,6 +69,8 @@ export function useProfileEdit() {
     setPassword,
     cpf,
     setCpf,
+    saldo,
+    setSaldo,
     fileInputRef,
     mudaImagem,
     salvarEdicao,

@@ -85,6 +85,17 @@ const ProfileEdit = () => {
           />
         </div>
 
+        <div>
+          <label htmlFor="saldo">Saldo:</label>
+          <input
+            type="number"
+            name="saldo"
+            placeholder="Digite seu saldo atual"
+            value={H.saldo}
+            onChange={({ target: { value } }) => H.setSaldo(value)}
+          />
+        </div>
+
         <button onClick={(e) => H.salvarEdicao(e)}>Salvar</button>
       </form>
     </div>

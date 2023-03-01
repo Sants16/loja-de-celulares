@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import ProfileEdit from "./pages/ProfileEdit";
+import Payment from "./pages/Payment";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "profile/edit",
         element: <ProfileEdit />,
+      },
+      {
+        path: "payment/:price",
+        element: <Payment />,
       },
     ],
   },

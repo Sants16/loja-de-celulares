@@ -6,9 +6,15 @@ const Profile = () => {
   return (
     <div>
       <img src={H.user.previewImage ?? iconPerfil} alt="Imagem de Perfil" />
-      <p>Nome: {H.user.name ?? "Adicione um nome ao editar o perfil"}</p>
-      <p>E-mail: {H.user.email}</p>
-      <p>CPF: {H.user.cpf ?? "Adicione seu CPF ao editar o perfil"}</p>
+      {H.user.name ? (
+        <div>
+          <p>Nome: {H.user.name}</p>
+          <p>E-mail: {H.user.email}</p>
+          <p>CPF: {H.user.cpf}</p>
+        </div>
+      ) : (
+        <p>Edite seu perfil ao clicar no botão abaixo</p>
+      )}
       <button onClick={H.editarPerfil}>Editar Perfil</button>
     </div>
   );

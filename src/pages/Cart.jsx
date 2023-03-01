@@ -9,6 +9,7 @@ const Cart = () => {
 
   return H.data.length >= 1 ? (
     <div style={{ display: "flex", flexDirection: "column" }}>
+      <p>{Formater.valorMonetario(Number(H.saldo))}</p>
       <Message>
         <h2>Subtotal:</h2>
         <span>{Formater.valorMonetario(H.subTotal)}</span>
@@ -25,6 +26,9 @@ const Cart = () => {
           </div>
         ))}
       </ProductsArea>
+      <button onClick={() => H.buyItem()}>Comprar</button>
+      <br />
+      <br />
     </div>
   ) : (
     <Message>Sem itens no carrinho, adicione algum na aba Loja</Message>
