@@ -5,19 +5,19 @@ import { BsFillCartCheckFill, BsFillCartPlusFill } from "react-icons/bs";
 import { ProductsArea, Button, Message } from "../css/styles";
 
 const Store = () => {
-  const H = useStore(); //* Assim eu consigo acessar todos os itens do hook useStore apartir do sufixo H, achei melhor deixar dessa forma pois ficaria mais facil identificar que o objeto parte de um hook personalizado
+  const { cart, data, handleClick, isLoading } = useStore();
 
-  return H.isLoading ? (
+  return isLoading ? (
     <Message>Carregando...</Message>
   ) : (
     <ProductsArea>
-      {H.data.map((item) => (
+      {data.map((item) => (
         <div key={item.id}>
           <h4>{item.title}</h4>
           <img src={item.thumbnail} alt={item.title} />
           <h5>{Formater.valorMonetario(item.price)}</h5>
-          <Button adicionar onClick={() => H.handleClick(item)}>
-            {H.cart.some((itemCarrinho) => itemCarrinho.id === item.id) ? (
+          <Button adicionar onClick={() => handleClick(item)}>
+            {cart.some((itemCarrinho) => itemCarrinho.id === item.id) ? (
               <BsFillCartCheckFill />
             ) : (
               <BsFillCartPlusFill />

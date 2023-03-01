@@ -26,10 +26,9 @@ export function useCart() {
 
   return {
     data,
-    setData,
     removeItem,
     subTotal,
-    saldo,
+    saldo: Number(saldo),
     buyItem,
   };
 }

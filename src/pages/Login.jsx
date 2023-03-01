@@ -4,7 +4,18 @@ import { useLogin } from "../hooks/pages/useLogin";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 
 const Login = () => {
-  const H = useLogin();
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    passwordVisibility,
+    seePassword,
+    logar,
+    cadastrar,
+    disableButton,
+    usuarioCadastrado,
+  } = useLogin();
 
   return (
     <Form>
@@ -14,8 +25,8 @@ const Login = () => {
           type="email"
           name="email"
           placeholder="Insira um e-mail"
-          value={H.email}
-          onChange={({ target: { value } }) => H.setEmail(value)}
+          value={email}
+          onChange={({ target: { value } }) => setEmail(value)}
         />
       </div>
 
@@ -23,14 +34,14 @@ const Login = () => {
         <label htmlFor="senha">Senha</label>
         <div className="btn">
           <input
-            type={H.passwordVisibility ? "text" : "password"}
+            type={passwordVisibility ? "text" : "password"}
             name="senha"
             placeholder="Insira uma senha"
-            value={H.password}
-            onChange={({ target: { value } }) => H.setPassword(value)}
+            value={password}
+            onChange={({ target: { value } }) => setPassword(value)}
           />
-          <button onClick={(e) => H.seePassword(e)}>
-            {H.passwordVisibility ? (
+          <button onClick={(e) => seePassword(e)}>
+            {passwordVisibility ? (
               <BsFillEyeSlashFill size={20} />
             ) : (
               <BsFillEyeFill size={20} />
@@ -39,12 +50,12 @@ const Login = () => {
         </div>
       </div>
 
-      {!H.disableButton && (
+      {!disableButton && (
         <ButtonsContainer>
-          {H.usuarioCadastrado ? (
-            <button onClick={(e) => H.logar(e)}>Logar</button>
+          {usuarioCadastrado ? (
+            <button onClick={(e) => logar(e)}>Logar</button>
           ) : (
-            <button onClick={(e) => H.cadastrar(e)}>Cadastrar</button>
+            <button onClick={(e) => cadastrar(e)}>Cadastrar</button>
           )}
         </ButtonsContainer>
       )}

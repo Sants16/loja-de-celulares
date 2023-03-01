@@ -16,9 +16,9 @@ export function usePayment() {
   const time = Math.ceil(Math.random() * 20) + 1;
 
   return {
-    price,
+    price: Number(price),
     name,
-    saldo,
+    saldo: Number(saldo),
     time,
     loading,
   };

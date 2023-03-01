@@ -6,11 +6,11 @@ import { PaymentArea } from "../css/stylesPayment";
 import { Loading } from "../components/Loading";
 
 const Payment = () => {
-  const H = usePayment();
+  const { loading, name, price, saldo, time } = usePayment();
 
-  return H.loading ? (
+  return loading ? (
     <Loading />
-  ) : Number(H.saldo) < Number(H.price) ? (
+  ) : saldo < price ? (
     <div>
       <p>Seu saldo é insuficiente</p>
       <span>
@@ -23,9 +23,9 @@ const Payment = () => {
       <span>
         <AiFillCheckCircle />
       </span>
-      <h4>{`Valor ${Formater.valorMonetario(Number(H.price))}`}</h4>
-      <h4>{`Comprador: ${H.name}`}</h4>
-      <h4>{`Prazo: ${H.time} dias`}</h4>
+      <h4>{`Valor ${Formater.valorMonetario(price)}`}</h4>
+      <h4>{`Comprador: ${name}`}</h4>
+      <h4>{`Prazo: ${time} dias`}</h4>
     </PaymentArea>
   );
 };

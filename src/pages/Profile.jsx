@@ -2,20 +2,20 @@ import { useProfile } from "../hooks/pages/useProfile";
 import iconPerfil from "../assets/images/perfil.png";
 
 const Profile = () => {
-  const H = useProfile();
+  const { previewImage, name, email, cpf, editarPerfil } = useProfile();
   return (
     <div>
-      <img src={H.user.previewImage ?? iconPerfil} alt="Imagem de Perfil" />
-      {H.user.name ? (
+      <img src={previewImage ?? iconPerfil} alt="Imagem de Perfil" />
+      {name ? (
         <div>
-          <p>Nome: {H.user.name}</p>
-          <p>E-mail: {H.user.email}</p>
-          <p>CPF: {H.user.cpf}</p>
+          <p>Nome: {name}</p>
+          <p>E-mail: {email}</p>
+          <p>CPF: {cpf}</p>
         </div>
       ) : (
         <p>Edite seu perfil ao clicar no botão abaixo</p>
       )}
-      <button onClick={H.editarPerfil}>Editar Perfil</button>
+      <button onClick={editarPerfil}>Editar Perfil</button>
     </div>
   );
 };

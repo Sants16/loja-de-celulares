@@ -3,6 +3,7 @@ import { getItem } from "../../services/LocalStorageFuncs";
 
 export function useProfile() {
   const user = getItem("user");
+  const { previewImage, name, email, cpf } = user;
   const navigate = useNavigate();
 
   const editarPerfil = () => {
@@ -10,7 +11,10 @@ export function useProfile() {
   };
 
   return {
-    user,
+    previewImage,
+    name,
+    email,
+    cpf,
     editarPerfil,
   };
 }

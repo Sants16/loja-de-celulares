@@ -59,7 +59,6 @@ export function useProfileEdit() {
   };
 
   return {
-    fileImage,
     previewImage,
     name,
     setName,

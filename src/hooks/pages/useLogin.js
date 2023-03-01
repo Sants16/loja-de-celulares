@@ -70,7 +70,6 @@ export function useLogin() {
 
   return {
     passwordVisibility,
-    setPasswordVisibility,
     seePassword,
     email,
     setEmail,
