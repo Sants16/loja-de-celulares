@@ -5,18 +5,19 @@ import "./index.css";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Store from "./pages/Store";
-import Login from "./pages/Login";
+import Access from "./pages/Access";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import ProfileEdit from "./pages/ProfileEdit";
 import Payment from "./pages/Payment";
+import { Loading } from "./components/Loading";
 
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
+    element: <Access />,
   },
   {
     path: "/app",
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         element: <Payment />,
       },
     ],
+  },
+  {
+    path: "/loading/:returnTo",
+    element: <Loading />,
   },
 ]);
 

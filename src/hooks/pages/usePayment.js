@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { getItem } from "../../services/LocalStorageFuncs";
+import { Formater } from "../../services/Formater";
 
 export function usePayment() {
   const [loading, setLoading] = useState(true);
@@ -11,14 +12,14 @@ export function usePayment() {
   }, 2500);
 
   const user = getItem("user");
-  const { name, saldo } = user;
+  const { name, email, saldo } = user;
 
   const time = Math.ceil(Math.random() * 20) + 1;
 
   return {
-    price: Number(price),
+    price: Formater.valorMonetario(Number(price)),
     name,
-    saldo: Number(saldo),
+    saldo: Formater.valorMonetario(Number(saldo)),
     time,
     loading,
   };

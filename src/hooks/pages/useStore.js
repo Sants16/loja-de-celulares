@@ -11,10 +11,12 @@ export function useStore() {
       );
       const responseJson = await response.json();
       const { results } = responseJson;
+      //setItem("estoque", results);
       return results;
     },
     {
       retry: 5,
+      //initialData: getItem("estoque") ?? [],
     }
   );
 

@@ -15,17 +15,14 @@ const frame = keyframes`
 `;
 
 const LoadContainer = styled.div`
-  background-color: crimson;
-  height: 94vh;
-  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 50px;
-  margin-top: -30px;
 
   div {
-    background-color: white;
+    background-color: crimson;
     height: 10em;
     width: 2em;
     animation: ${frame} 1.5s linear infinite;

@@ -4,7 +4,7 @@ import { getItem, setItem } from "../../services/LocalStorageFuncs";
 import { hash, compare } from "../../services/PasswordEncrypting";
 import { useNavigate } from "react-router-dom";
 
-export function useLogin() {
+export function useAccess() {
   const usuarioCadastrado = getItem("user");
   const [passwordVisibility, setPasswordVisibility] = useState(false);
   const [email, setEmail] = useState(

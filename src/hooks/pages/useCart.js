@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getItem, setItem } from "../../services/LocalStorageFuncs";
+import { Formater } from "../../services/Formater";
 
 export function useCart() {
   const [data, setData] = useState(getItem("carrinho") ?? []);
@@ -27,7 +28,7 @@ export function useCart() {
   return {
     data,
     removeItem,
-    subTotal,
+    subTotal: Formater.valorMonetario(subTotal),
     saldo: Number(saldo),
     buyItem,
   };

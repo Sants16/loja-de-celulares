@@ -5,10 +5,5 @@ export const hash = (senha) => {
 };
 
 export const compare = (senha, hashSenha) => {
-  return bcrypt.compareSync(senha, hashSenha);
-  // bcrypt.compare(senha, hashSenha, (err, batem) => {
-  //     if(err) throw err
-  //     else if(batem) return true
-  //     else return false
-  // })
+  return bcrypt.compare(senha, hashSenha);
 };

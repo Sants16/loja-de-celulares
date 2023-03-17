@@ -1,8 +1,7 @@
 import { usePayment } from "../hooks/pages/usePayment";
-import { Formater } from "../services/Formater";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { MdError } from "react-icons/md";
-import { PaymentArea } from "../css/stylesPayment";
+import { PaymentContainer } from "../css/stylesPayment";
 import { Loading } from "../components/Loading";
 
 const Payment = () => {
@@ -18,15 +17,18 @@ const Payment = () => {
       </span>
     </div>
   ) : (
-    <PaymentArea>
-      <h2>Sua compra foi concluída com sucesso</h2>
-      <span>
-        <AiFillCheckCircle />
-      </span>
-      <h4>{`Valor ${Formater.valorMonetario(price)}`}</h4>
-      <h4>{`Comprador: ${name}`}</h4>
-      <h4>{`Prazo: ${time} dias`}</h4>
-    </PaymentArea>
+    <PaymentContainer>
+      <div>
+        <h2>{name} sua compra foi concluída com sucesso</h2>
+        <span>
+          <AiFillCheckCircle />
+        </span>
+        <div>
+          <h4>{price}</h4>
+          <h4>{`${time} dias para entrega`}</h4>
+        </div>
+      </div>
+    </PaymentContainer>
   );
 };
 
