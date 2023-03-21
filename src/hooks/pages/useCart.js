@@ -21,10 +21,11 @@ export function useCart() {
   const buyItem = () => {
     if (subTotal > saldo) {
       navigate(`/app/payment/reject`);
-      setItem("carrinho", []);
     } else {
       navigate(`/app/payment/approved/${subTotal}`);
     }
+
+    setItem("carrinho", []);
   };
 
   return {
