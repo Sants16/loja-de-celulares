@@ -14,7 +14,7 @@ const Cart = () => {
         <div className="saldo">
           <h3>Seu saldo: </h3>
           <span>
-            {saldo !== 0
+            {saldo
               ? Formater.valorMonetario(Number(saldo))
               : "Saldo indisponível"}
           </span>

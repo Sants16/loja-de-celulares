@@ -15,6 +15,7 @@ export const ProfileContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     row-gap: 20px;
     background-color: crimson;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -106,6 +107,7 @@ export const ProfileEditContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     row-gap: 10px;
     background-color: crimson;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -130,6 +132,7 @@ export const ProfileEditContainer = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
       row-gap: 10px;
       padding: 0 100px;
     }
