@@ -51,7 +51,8 @@ export const CartContainer = styled.div`
     .product_area {
       display: flex;
       flex-direction: row;
-      column-gap: 50px;
+      flex-wrap: wrap;
+      gap: 50px;
       margin-bottom: 15px;
 
       div {
