@@ -69,7 +69,7 @@ export const AccessContainer = styled.div`
     }
 
     .access_btn {
-      margin-top: 25px;
+      margin-top: 10px;
       cursor: pointer;
       padding: 15px 25px;
       border: unset;
