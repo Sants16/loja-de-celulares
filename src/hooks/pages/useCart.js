@@ -19,9 +19,11 @@ export function useCart() {
   const subTotal = data.reduce((acc, cur) => acc + cur.price, 0);
 
   const buyItem = () => {
-    navigate(`/app/payment/${subTotal}`);
-    if (subTotal < saldo) {
+    if (subTotal > saldo) {
+      navigate(`/app/payment/reject`);
       setItem("carrinho", []);
+    } else {
+      navigate(`/app/payment/approved/${subTotal}`);
     }
   };
 

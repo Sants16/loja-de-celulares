@@ -76,7 +76,7 @@ const ProfileEdit = () => {
           <div>
             <label htmlFor="password">Senha:</label>
             <input
-              type="password"
+              type="text"
               name="password"
               placeholder="Digite uma nova senha"
               value={password}

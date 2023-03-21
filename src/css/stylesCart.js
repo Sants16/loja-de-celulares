@@ -1,19 +1,29 @@
 import styled from "styled-components";
 
 export const CartContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   div {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 35px;
+    padding: 10px;
+    row-gap: 10px;
 
     .saldo {
+      width: 250px;
       display: flex;
       flex-direction: row;
       justify-content: center;
-      align-items: center;
+      align-items: baseline;
       align-self: flex-end;
+
       column-gap: 10px;
       background-color: #333;
       padding: 10px;
@@ -21,10 +31,28 @@ export const CartContainer = styled.div`
       color: #fff;
     }
 
+    .valor {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: baseline;
+      align-self: flex-end;
+      column-gap: 10px;
+
+      h2 {
+        font-size: 40px;
+      }
+
+      span {
+        font-size: 30px;
+      }
+    }
+
     .product_area {
       display: flex;
       flex-direction: row;
       column-gap: 50px;
+      margin-bottom: 15px;
 
       div {
         height: 320px;

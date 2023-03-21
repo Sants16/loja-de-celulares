@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const PaymentContainer = styled.div`
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 35px 0;
 
   div {
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,6 +21,7 @@ export const PaymentContainer = styled.div`
     }
 
     div {
+      margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -27,6 +30,31 @@ export const PaymentContainer = styled.div`
       border-radius: 15px;
       padding: 20px;
       font-size: 40px;
+    }
+  }
+`;
+
+export const CantBuyContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    margin-top: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      color: red;
+      font-size: 100px;
+    }
+
+    div {
+      margin: 0;
     }
   }
 `;

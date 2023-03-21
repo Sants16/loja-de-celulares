@@ -51,25 +51,23 @@ const Access = () => {
           </div>
         </div>
 
-        <div>
-          {usuarioCadastrado ? (
-            <button
-              className="access_btn"
-              disabled={disableButton}
-              onClick={(e) => logar(e)}
-            >
-              Logar
-            </button>
-          ) : (
-            <button
-              className="access_btn"
-              disabled={disableButton}
-              onClick={(e) => cadastrar(e)}
-            >
-              Cadastrar
-            </button>
-          )}
-        </div>
+        {usuarioCadastrado ? (
+          <button
+            className="access_btn"
+            disabled={disableButton}
+            onClick={(e) => logar(e)}
+          >
+            Logar
+          </button>
+        ) : (
+          <button
+            className="access_btn"
+            disabled={disableButton}
+            onClick={(e) => cadastrar(e)}
+          >
+            Cadastrar
+          </button>
+        )}
       </form>
     </AccessContainer>
   );

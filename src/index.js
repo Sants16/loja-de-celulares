@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <ProfileEdit />,
       },
       {
-        path: "payment/:price",
+        path: "payment/:status/:price?",
         element: <Payment />,
       },
     ],

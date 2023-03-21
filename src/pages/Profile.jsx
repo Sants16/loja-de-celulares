@@ -4,12 +4,13 @@ import { ProfileContainer } from "../css/stylesProfile";
 
 const Profile = () => {
   const { previewImage, name, email, cpf, editarPerfil } = useProfile();
+
   return (
     <ProfileContainer>
       <div>
         <img src={previewImage ?? iconPerfil} alt="Imagem de Perfil" />
         {name ? (
-          <div>
+          <div className="infos">
             <p>
               <span>Nome:</span> {name}
             </p>

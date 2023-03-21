@@ -12,7 +12,7 @@ const Cart = () => {
     <CartContainer>
       <div>
         <div className="saldo">
-          <h2>Seu saldo: </h2>
+          <h3>Seu saldo: </h3>
           <span>
             {saldo !== 0
               ? Formater.valorMonetario(Number(saldo))
@@ -20,10 +20,11 @@ const Cart = () => {
           </span>
         </div>
 
-        <Message>
+        <div className="valor">
           <h2>Subtotal:</h2>
           <span>{subTotal}</span>
-        </Message>
+        </div>
+
         <div className="product_area">
           {data.map((item) => (
             <div key={item.id}>

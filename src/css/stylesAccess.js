@@ -1,19 +1,33 @@
 import styled from "styled-components";
 
 export const AccessContainer = styled.div`
-  padding: 170px 250px;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   form {
+    height: 340px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 20px;
     padding: 20px;
     background: #dc143c;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 
     div {
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 10px;
 
       label {
         align-self: flex-start;
@@ -38,6 +52,7 @@ export const AccessContainer = styled.div`
         width: 100%;
         display: flex;
         flex-direction: row;
+
         button {
           margin-left: 10px;
           background: transparent;
